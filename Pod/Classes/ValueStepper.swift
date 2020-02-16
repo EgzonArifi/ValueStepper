@@ -384,6 +384,8 @@ private enum Button: Int {
             continuousTimer = nil
         } else if value <= minimumValue {
             increaseButton.isEnabled = true
+            increaseButton.backgroundColor = backgroundButtonColor
+            increaseLayer.strokeColor = tintColor.cgColor
             if continuousTimer == nil {
                 increaseButton.backgroundColor = backgroundButtonColor
             }
