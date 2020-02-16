@@ -379,7 +379,7 @@ private enum Button: Int {
             increaseLayer.strokeColor = disabledIconButtonColor.cgColor
             decreaseButton.isEnabled = true
             decreaseButton.backgroundColor = backgroundButtonColor
-            decreaseButton.strokeColor = tintColor.cgColor
+            decreaseLayer.strokeColor = tintColor.cgColor
             if continuousTimer == nil {
                 decreaseButton.backgroundColor = backgroundButtonColor
             }
