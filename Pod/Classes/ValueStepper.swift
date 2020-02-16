@@ -20,7 +20,8 @@ private enum Button: Int {
 @IBDesignable open class ValueStepper: UIControl {
 
     // MARK - Public variables
-
+    public var didValueChange: (()->())?
+    
     /// Current value and sends UIControlEventValueChanged when modified.
     @IBInspectable public var value: Double = 0.0 {
         didSet {
@@ -340,6 +341,7 @@ private enum Button: Int {
         if roundedValue + stepValue <= maximumValue && roundedValue + stepValue >= minimumValue {
             value = roundedValue + stepValue
         }
+        didValueChange?()
     }
 
     func decreaseValue() {
@@ -347,6 +349,7 @@ private enum Button: Int {
         if roundedValue - stepValue <= maximumValue && roundedValue - stepValue >= minimumValue {
             value = roundedValue - stepValue
         }
+        didValueChange?()
     }
 
     @objc func labelPressed(_ sender: UITapGestureRecognizer) {
